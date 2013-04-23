@@ -18,6 +18,17 @@ Documentation provided by GoDoc.
 
 [ini]: http://godoc.org/github.com/mewkiz/ini-prealpha
 
+Examples
+--------
+
+* Basic read support:
+
+		github.com/mewkiz/ini-prealpha/examples/use1
+
+* Basic write support:
+
+		github.com/mewkiz/ini-prealpha/examples/use2
+
 public domain
 -------------
 
