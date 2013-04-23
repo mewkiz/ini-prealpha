@@ -2,6 +2,7 @@ package ini
 
 import (
 	"errors"
+	"fmt"
 	"log"
 )
 
@@ -13,24 +14,29 @@ import (
 type Sect struct {
 }
 
-// Section returns the section with the specified section name in conf. The
-// value of ok is true if the section is present in conf, and false otherwise.
-func (conf *Conf) Section(name string) (sect *Sect, ok bool) {
-	log.Fatalln("Conf.Section: not yet implemented.")
-	return nil, false
+func (sect *Sect) String() string {
+	log.Fatalln("Sect.String: not yet implemented.")
+	return ""
 }
 
-// AddSection adds a new section with the specified section name to conf.
+// Section returns the section, with the specified section name in conf. The
+// value of err is nil if the section is present in conf, and not nil otherwise.
+func (conf *Conf) Section(name string) (sect *Sect, err error) {
+	log.Fatalln("Conf.Section: not yet implemented.")
+	return nil, fmt.Errorf("Conf.Section: unable to locate section %q.", name)
+}
+
+// AddSection adds a new section, with the specified section name to conf.
 func (conf *Conf) AddSection(name string) (sect *Sect, err error) {
 	return nil, errors.New("Conf.AddSection: not yet implemented.")
 }
 
-// DelSection deletes the section with the specified section name from conf.
+// DelSection deletes the section, with the specified section name from conf.
 func (conf *Conf) DelSection(name string) {
 	log.Fatalln("Conf.DelSection: not yet implemented.")
 }
 
-// HasSection returns true if the section with the specified section name is
+// HasSection returns true if the section, with the specified section name, is
 // present in conf, and false otherwise.
 func (conf *Conf) HasSection(name string) (ok bool) {
 	log.Fatalln("Conf.HasSection: not yet implemented.")

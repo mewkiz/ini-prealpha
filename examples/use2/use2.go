@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"log"
 
 	ini "github.com/mewkiz/ini-prealpha"
@@ -22,13 +21,13 @@ func use2() (err error) {
 	}
 
 	// Get user id.
-	sect, ok := conf.Section("user")
-	if !ok {
-		return errors.New(`unable to locate "user" section.`)
+	sect, err := conf.Section("user")
+	if err != nil {
+		return err
 	}
-	id, ok := sect.GetInt("id")
-	if !ok {
-		return errors.New(`unable to locate "id" key in "user" section.`)
+	id, err := sect.GetInt("id")
+	if err != nil {
+		return err
 	}
 
 	// Get email based on user id.
