@@ -2,7 +2,7 @@ pre-alpha
 ---------
 
 This project is in a *pre-alpha* stage. It is mainly intended to speculate about
-API design.
+API design. The API may change significantly!
 
 ini
 ===

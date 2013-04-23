@@ -1,7 +1,7 @@
 // Package ini implements access to ini configurations.
 //
-// NOTE: This package is a work in progress and it is not ready for use. It's
-// API may change significantly!
+// NOTE: This project is in a *pre-alpha* stage. It is mainly intended to
+// speculate about API design. The API may change significantly!
 package ini
 
 import (
