@@ -10,7 +10,7 @@ import (
 	"log"
 )
 
-// Conf is a configuration containing keys: name and value pairs. Key are
+// Conf is a configuration containing keys: name and value pairs. Keys are
 // grouped into sections, either explicitly with a section name or implicitly to
 // the default section.
 type Conf struct {
