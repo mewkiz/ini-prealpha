@@ -38,3 +38,10 @@ public domain
 This code is hereby released into the *[public domain][]*.
 
 [public domain]: https://creativecommons.org/publicdomain/zero/1.0/
+
+Portions of the [ini format specification][] have been derived from the
+[Go programming language specification][] and those parts are covered by the
+[BSD license][].
+
+[Go programming language specification]: http://golang.org/ref/spec
+[BSD license]: http://golang.org/LICENSE
