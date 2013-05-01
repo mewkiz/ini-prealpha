@@ -13,7 +13,6 @@ Examples:
 host=`www.example.org`
 ports=[80, 8080]
 https=false
-timeout=30s
 ```
 
 Sections
@@ -162,18 +161,6 @@ author=`Eric Arthur Blair (pseudonym "George Orwell")`
 [Swedish]
 raw=`åäöÅÄÖ`
 interpreted="\xC3\xA5\xC3\xA4\xC3\xB6\u00C5\u00C4\u00D6"
-```
-
-### Duration
-
-A duration is a possibly signed sequence of decimal numbers, each with optional
-fraction and a unit suffix, such as "300ms", "-1.5h" or "2h45m". Valid time
-units are "ns", "us" (or "µs"), "ms", "s", "m", "h".
-
-Examples:
-
-```ini
-timeout=1m15s
 ```
 
 ### Lists
