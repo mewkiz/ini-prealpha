@@ -7,7 +7,10 @@ API design. The API may change significantly!
 ini
 ===
 
-This package implements access to ini configurations.
+This package implements access to ini configuration files, as defined by the
+[ini format specification][].
+
+[ini format specification]: https://github.com/mewkiz/ini-prealpha/blob/master/spec.md
 
 Documentation
 -------------
