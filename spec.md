@@ -11,7 +11,7 @@ Examples:
 
 ```ini
 host=`www.example.org`
-ports=[80, 8080]
+ports={80, 8080}
 https=false
 ```
 
@@ -71,6 +71,8 @@ optional prefix sets a non-decimal base: `0` for octal, `0x` or `0X` for
 hexadecimal. In hexadecimal literals, letters `a-f` and `A-F` represent values
 10 through 15.
 
+Examples:
+
 ```ini
 ; Decimal
 port=8080
@@ -92,6 +94,8 @@ exponent part. The integer and fractional part comprise decimal digits; the
 exponent part is an `e` or `E` followed by an optionally signed decimal
 exponent. One of the integer part or the fractional part may be elided; one of
 the decimal point or the exponent may be elided.
+
+Examples:
 
 ```ini
 ; 33%
@@ -156,10 +160,12 @@ Examples:
 
 ```ini
 [1984]
+; raw string literal
 author=`Eric Arthur Blair (pseudonym "George Orwell")`
 
 [Swedish]
 raw=`åäöÅÄÖ`
+; interpreted string literal
 interpreted="\xC3\xA5\xC3\xA4\xC3\xB6\u00C5\u00C4\u00D6"
 ```
 
