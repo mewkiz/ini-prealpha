@@ -47,11 +47,6 @@ func use1() (err error) {
 			fmt.Println("basic.int:", c)
 		}
 
-		d, err := sect.GetUint("uint")
-		if err == nil {
-			fmt.Println("basic.uint:", d)
-		}
-
 		e, err := sect.GetFloat64("float")
 		if err == nil {
 			fmt.Println("basic.float:", e)
