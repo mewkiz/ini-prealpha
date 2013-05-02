@@ -26,14 +26,6 @@ func (sect *Sect) GetInt(name string) (v int, err error) {
 	return 0, fmt.Errorf("Sect.GetInt: unable to locate key %q in section %q.", name, sect)
 }
 
-// GetUint returns the unsigned integer value, with the specified key name in
-// sect. The value of err is nil if the key is present in sect, and not nil
-// otherwise.
-func (sect *Sect) GetUint(name string) (v uint, err error) {
-	log.Fatalln("Sect.GetUint: not yet implemented.")
-	return 0, fmt.Errorf("Sect.GetUint: unable to locate key %q in section %q.", name, sect)
-}
-
 // GetFloat64 returns the float64 value, with the specified key name in sect. The
 // value of err is nil if the key is present in sect, and not nil otherwise.
 func (sect *Sect) GetFloat64(name string) (v float64, err error) {
