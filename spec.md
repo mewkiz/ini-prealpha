@@ -110,7 +110,7 @@ A string literal represents a string constant obtained from concatenating a
 sequence of characters. There are two forms: raw string literals and interpreted
 string literals.
 
-Raw string literals are character sequences between back quotes ` `` `. Within
+Raw string literals are character sequences between back quotes `` ` ``. Within
 the quotes, any character is legal except back quote. The value of a raw string
 literal is the string composed of the uninterpreted (implicitly UTF-8-encoded)
 characters between the quotes; in particular, backslashes have no special meaning
