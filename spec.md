@@ -106,68 +106,40 @@ size=4e9
 
 ### String literals
 
-A string literal represents a string constant obtained from concatenating a
-sequence of characters. There are two forms: raw string literals and interpreted
+There are two forms of string literals: raw string literals and interpreted
 string literals.
 
-Raw string literals are character sequences between back quotes `` ` ``. Within
-the quotes, any character is legal except back quote. The value of a raw string
-literal is the string composed of the uninterpreted (implicitly UTF-8-encoded)
-characters between the quotes; in particular, backslashes have no special meaning
-and the string may contain newlines. Carriage returns inside raw string literals
-are discarded from the raw string value.
+Raw string literals are character sequences between back quotes `` `` ``. Within
+the quotes, any character is legal except back quote.
 
 Interpreted string literals are character sequences between double quotes `""`.
 The text between the quotes, which may not contain newlines, forms the value of
-the literal, with backslash escapes interpreted as described below. The
-three-digit octal (`\nnn`) and two-digit hexadecimal (`\xnn`) escapes represent
-individual bytes of the resulting string; all other escapes represent the
-(possibly multi-byte) UTF-8 encoding of individual characters. Thus inside a
-string literal `\377` and `\xFF` represent a single byte of value `0xFF`=255,
-while `ÿ`, `\u00FF`, `\U000000FF` and `\xc3\xbf` represent the two bytes `0xc3`
-`0xbf` of the UTF-8 encoding of character U+00FF.
+the literal, with backslash escapes being interpreted.
 
-Several backslash escapes allow arbitrary values to be encoded as ASCII text.
-There are four ways to represent the integer value as a numeric constant: `\x`
-followed by exactly two hexadecimal digits; `\u` followed by exactly four
-hexadecimal digits; `\U` followed by exactly eight hexadecimal digits, and a
-plain backslash `\` followed by exactly three octal digits. In each case the
-value of the literal is the value represented by the digits in the corresponding
-base.
-
-Although these representations all result in an integer, they have different
-valid ranges. Octal escapes must represent a value between 0 and 255 inclusive.
-Hexadecimal escapes satisfy this condition by construction. The escapes `\u` and
-`\U` represent Unicode code points so within them some values are illegal, in
-particular those above `0x10FFFF` and surrogate halves.
-
-After a backslash, certain single-character escapes represent special values:
-
-	\a   U+0007 alert or bell
-	\b   U+0008 backspace
-	\f   U+000C form feed
-	\n   U+000A line feed or newline
-	\r   U+000D carriage return
-	\t   U+0009 horizontal tab
-	\v   U+000b vertical tab
-	\\   U+005c backslash
-	\"   U+0022 double quote
-
-All other sequences starting with a backslash are illegal inside string
-literals.
+See the [string literals section][] of the Go specification for a detailed
+definition.
 
 Examples:
 
 ```ini
 [1984]
-; raw string literal
+; raw string literals may contain double quotes.
 author=`Eric Arthur Blair (pseudonym "George Orwell")`
 
 [Swedish]
-raw=`åäöÅÄÖ`
-; interpreted string literal
-interpreted="\xC3\xA5\xC3\xA4\xC3\xB6\u00C5\u00C4\u00D6"
+; raw string literals may contain new lines.
+raw=`åäö
+ÅÄÖ`
+; interpreted string literals include many different escapes.
+;    \303       (octal escape)
+;    \xC3       (hexadecimal escape)
+;    \n         (single-character escape)
+;    \u00C4     (Unicode code point escape)
+;    \U000000D6 (Unicode code point escape)
+interpreted="\303\245\xC3\xA4\xc3\xb6\nÅ\u00C4\U000000D6"
 ```
+
+[string literals section]: http://golang.org/ref/spec#String_literals
 
 ### Lists
 
