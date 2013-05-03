@@ -13,6 +13,7 @@ Examples:
 host=`www.example.org`
 ports={80, 8080}
 https=false
+ratio=0.25
 ```
 
 Sections
@@ -54,8 +55,7 @@ Data types
 
 ### Booleans
 
-A boolean type represents the set of Boolean truth values denoted by the
-predeclared constants `true` and `false`.
+Booleans are represented using the predeclared constants `true` and `false`.
 
 Examples:
 
@@ -66,42 +66,49 @@ https=false
 
 ### Integer literals
 
-An integer literal is a sequence of digits representing an integer constant. An
-optional prefix sets a non-decimal base: `0` for octal, `0x` or `0X` for
-hexadecimal. In hexadecimal literals, letters `a-f` and `A-F` represent values
-10 through 15.
+An integer literal is an optionally signed sequence of digits representing an
+integer constant. An optional prefix sets a non-decimal base: `0` for octal,
+`0x` or `0X` for hexadecimal. In hexadecimal literals, letters `a-f` and `A-F`
+represent values 10 through 15.
 
 Examples:
 
 ```ini
-; Decimal
+; Decimal representation.
 port=8080
 
-; Hexadecimal
-; fLaC
+; Hexadecimal representation.
+;    fLaC
 magic=0x664C6143
 
-; Octal
-; -rw-r--r--
+; Octal representation.
+;    -rw-r--r--
 perm=0644
+
+; Signed integer literal.
+step=-3
 ```
 
 ### Floating-point literals
 
-A floating-point literal is a decimal representation of a floating-point
-constant. It has an integer part, a decimal point, a fractional part, and an
-exponent part. The integer and fractional part comprise decimal digits; the
-exponent part is an `e` or `E` followed by an optionally signed decimal
-exponent. One of the integer part or the fractional part may be elided; one of
-the decimal point or the exponent may be elided.
+A floating-point literal is an optionally signed decimal representation of a
+floating-point constant. It has an integer part, a decimal point, a fractional
+part, and an exponent part. The integer and fractional part comprise decimal
+digits; the exponent part is an `e` or `E` followed by an optionally signed
+decimal exponent. One of the integer part or the fractional part may be elided;
+one of the decimal point or the exponent may be elided.
 
 Examples:
 
 ```ini
 ; 33%
 threshold=0.33
+
 ; 4 GB.
 size=4e9
+
+; Signed floating-point literal.
+delta=-0.03
 ```
 
 ### String literals
@@ -130,10 +137,11 @@ author=`Eric Arthur Blair (pseudonym "George Orwell")`
 ; raw string literals may contain new lines.
 raw=`åäö
 ÅÄÖ`
+
 ; interpreted string literals include many different escapes.
+;    \n         (single-character escape)
 ;    \303       (octal escape)
 ;    \xC3       (hexadecimal escape)
-;    \n         (single-character escape)
 ;    \u00C4     (Unicode code point escape)
 ;    \U000000D6 (Unicode code point escape)
 interpreted="\303\245\xC3\xA4\xc3\xb6\nÅ\u00C4\U000000D6"
