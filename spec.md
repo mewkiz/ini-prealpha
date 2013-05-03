@@ -109,8 +109,8 @@ size=4e9
 There are two forms of string literals: raw string literals and interpreted
 string literals.
 
-Raw string literals are character sequences between back quotes `` `` ``. Within
-the quotes, any character is legal except back quote.
+Raw string literals are character sequences between back quotes ``` `` ```.
+Within the quotes, any character is legal except back quote.
 
 Interpreted string literals are character sequences between double quotes `""`.
 The text between the quotes, which may not contain newlines, forms the value of
