@@ -1,11 +1,22 @@
 ini format specification
 ========================
 
+Tokens
+------
+
+Tokens form the vocabulary of the ini format. While breaking the input into
+tokens, the next token is the longest sequence of characters that form a valid
+token.
+
 Keys
 ----
 
 At it's core the ini format is a collection of keys (`name=value` pairs). The
 value can consist of any supported data type.
+
+A key name is a sequence of one or more letters and digits. The first character
+in a key name must be a letter. See the [identifiers section][] of the Go
+specification for a detailed definition of valid key names.
 
 Examples:
 
@@ -16,11 +27,23 @@ https=false
 ratio=0.25
 ```
 
+[identifiers section]: http://golang.org/ref/spec#Identifiers
+
+
 Sections
 --------
 
 Keys are grouped into sections, either explicitly with a section name or
 implicitly to the default section.
+
+A section name is a sequence of one or more characters prefixed with a left
+bracket `[` and suffixed with a right bracket `]`. The character sequence may
+not include new lines `\n` but may include brackets `[`, `]` and semicolons `;`.
+
+The section name of the default section is always an empty string `""`.
+
+Only white space and new line characters are allowed after a section name. Thus
+comments are explicitly prohibited after a section name.
 
 Examples:
 
@@ -41,14 +64,41 @@ debug=true
 https=false
 ```
 
+```ini
+; Check for change:
+[http://www.example.org/?q=test;ing]
+
+[http://www.example.org/?id[]=1&id[]=2]
+interval="1m30s"
+```
+
 Comments
 --------
 
-Lines beginning with the character `;` are considered comments.
+Line comments start with a semicolon `;` and stop at the end of the line. A line
+comment acts like a newline.
+
+A line comment may be used anywhere a new line could be. The only exception is
+after section names, where no line comments are allowed.
+
+Examples:
 
 ```ini
 ; This is a simple line comment.
+
+[Zombie]
+name="bgen" ; Behavior generator
+args={
+        2, ; Speed
+        1, ; Intelligence
+        9, ; Health
+     }
 ```
+
+Invalid examples:
+
+```ini
+[section] ; this is an invalid comment.
 
 Data types
 ----------
