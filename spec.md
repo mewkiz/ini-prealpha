@@ -99,6 +99,7 @@ Invalid examples:
 
 ```ini
 [section] ; this is an invalid comment.
+```
 
 Data types
 ----------
